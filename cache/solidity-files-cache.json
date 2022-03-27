@@ -35,10 +35,10 @@
         }
       }
     },
-    "C:\\Users\\Mateus\\Desktop\\et\\src\\Contract.sol": {
-      "lastModificationDate": 1648344507094,
-      "contentHash": "06f2ae5d0b8d24e78c123c3364d518f8",
-      "sourceName": "src\\Contract.sol",
+    "C:\\Users\\Mateus\\Desktop\\et\\lib\\solmate\\src/tokens/ERC721.sol": {
+      "lastModificationDate": 1648344649237,
+      "contentHash": "3e1031e0eaebf31550dd1dd9b4bb100d",
+      "sourceName": "lib\\solmate\\src/tokens/ERC721.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -62,6 +62,45 @@
         }
       },
       "imports": [],
+      "versionRequirement": ">=0.8.0",
+      "artifacts": {
+        "ERC721": {
+          "0.8.10+commit.fc410830.Windows.msvc": "ERC721.sol\\ERC721.json"
+        },
+        "ERC721TokenReceiver": {
+          "0.8.10+commit.fc410830.Windows.msvc": "ERC721.sol\\ERC721TokenReceiver.json"
+        }
+      }
+    },
+    "C:\\Users\\Mateus\\Desktop\\et\\src\\Contract.sol": {
+      "lastModificationDate": 1648348960338,
+      "contentHash": "060006f74a9d8f98bef93d180a7b3855",
+      "sourceName": "src\\Contract.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [
+        "lib\\solmate\\src/tokens/ERC721.sol"
+      ],
       "versionRequirement": "=0.8.10",
       "artifacts": {
         "Contract": {
@@ -70,8 +109,8 @@
       }
     },
     "C:\\Users\\Mateus\\Desktop\\et\\src\\test\\Contract.t.sol": {
-      "lastModificationDate": 1648344507095,
-      "contentHash": "7016738fe305fd90c36ea69a5cb2a78c",
+      "lastModificationDate": 1648349158944,
+      "contentHash": "defab48beb53094aea21cf24d4dd1e7b",
       "sourceName": "src\\test\\Contract.t.sol",
       "solcConfig": {
         "settings": {
@@ -96,7 +135,9 @@
         }
       },
       "imports": [
-        "lib/ds-test/src/test.sol"
+        "lib/ds-test/src/test.sol",
+        "lib\\solmate\\src/tokens/ERC721.sol",
+        "src\\Contract.sol"
       ],
       "versionRequirement": "=0.8.10",
       "artifacts": {

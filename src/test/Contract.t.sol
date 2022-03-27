@@ -2,11 +2,22 @@
 pragma solidity 0.8.10;
 
 import "ds-test/test.sol";
+import "../Contract.sol";
 
 contract ContractTest is DSTest {
-    function setUp() public {}
+    Contract private nft;
 
-    function testExample() public {
-        assertTrue(true);
+    function setUp() public {
+        nft = new Contract("MARY", "MRY");
     }
+
+    function testMintNo() public {
+        nft.mintTo(address(1));
+    }
+
+    function testMintYes() public {
+        nft.mintTo{value: 0.08 ether}(address(1));
+    }
+
+
 }
