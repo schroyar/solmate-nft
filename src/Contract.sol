@@ -43,7 +43,12 @@ contract Contract is ERC721, Auth {
         override
         returns (string memory)
     {
-    
+        require(
+            ownerOf[tokenId] != address(0),
+            "non existent"
+        );
+        return 
+        
     }
 
     function withdrawBalance(address payable recipient) public requiresAuth {
