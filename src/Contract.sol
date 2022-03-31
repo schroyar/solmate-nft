@@ -3,6 +3,7 @@ pragma solidity 0.8.10;
 
 import {ERC721} from "solmate/tokens/ERC721.sol";
 import "openzeppelin-contracts/contracts/access/Ownable.sol";
+import "openzeppelin-contracts/contracts/utils/Strings.sol";
 
 contract Contract is ERC721, Ownable {
 
@@ -16,7 +17,7 @@ contract Contract is ERC721, Ownable {
         string memory _name,
         string memory _symbol,
         string memory _base_uri
-    ) ERC721 (_name, _symbol) Ownable()
+    ) ERC721 (_name, _symbol)
     {
         base_uri = _base_uri;
     }
@@ -48,11 +49,13 @@ contract Contract is ERC721, Ownable {
             "non existent"
         );
 
-        return "ok";
+        return Strings.toString(tokenId);
 
     }
 
     function withdrawBalance(address payable recipient) public onlyOwner {
-
+        uint256 balance = address(this).balance;
+        (bool transfer, ) = payee.call{value: balance}("Withdrawing...");
+        require(transfer, "Transaction failed");
     }
 }
