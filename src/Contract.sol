@@ -2,9 +2,9 @@
 pragma solidity 0.8.10;
 
 import {ERC721} from "solmate/tokens/ERC721.sol";
-import {Auth} from "solmate/auth/Auth.sol";
+import "openzeppelin-contracts/contracts/access/Ownable.sol";
 
-contract Contract is ERC721, Auth {
+contract Contract is ERC721, Ownable {
 
     uint256 public currentTokenId;
     uint256 public constant MINT_PRICE = 0.08 ether;
@@ -16,7 +16,7 @@ contract Contract is ERC721, Auth {
         string memory _name,
         string memory _symbol,
         string memory _base_uri
-    ) ERC721 (_name, _symbol) Auth(Auth(msg.sender).owner(), Auth(msg.sender).authority())
+    ) ERC721 (_name, _symbol) Ownable()
     {
         base_uri = _base_uri;
     }
@@ -47,11 +47,12 @@ contract Contract is ERC721, Auth {
             ownerOf[tokenId] != address(0),
             "non existent"
         );
-        return 
-        
+
+        return "ok";
+
     }
 
-    function withdrawBalance(address payable recipient) public requiresAuth {
+    function withdrawBalance(address payable recipient) public onlyOwner {
 
     }
 }
