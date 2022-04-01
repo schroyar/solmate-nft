@@ -4,6 +4,7 @@ pragma solidity 0.8.10;
 import "ds-test/test.sol";
 import "../Contract.sol";
 import "forge-std/Vm.sol";
+import "forge-std/stdlib.sol";
 
 contract Receiver is ERC721TokenReceiver {
     function onERC721Received(
@@ -17,7 +18,13 @@ contract Receiver is ERC721TokenReceiver {
 }
 
 contract ContractTest is DSTest {
+    
+    using stdStorage for StdStorage;
+
     Contract private nft;
+    Vm private vm = Vm(HEVM_ADDRESS);
+    StdStorage private stdstore;
+
 
     function setUp() public {
         nft = new Contract("MARY", "MRY");
