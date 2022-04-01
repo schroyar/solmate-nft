@@ -3,6 +3,7 @@ pragma solidity 0.8.10;
 
 import "ds-test/test.sol";
 import "../Contract.sol";
+import "forge-std/Vm.sol";
 
 contract Receiver is ERC721TokenReceiver {
     function onERC721Received(

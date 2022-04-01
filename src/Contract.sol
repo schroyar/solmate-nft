@@ -49,7 +49,10 @@ contract Contract is ERC721, Ownable {
             "non existent"
         );
 
-        return Strings.toString(tokenId);
+        return
+            bytes(base_uri).length > 0 
+                ? string(abi.encodePacked(base_uri, tokenId.toString()))
+                : "";
 
     }
 
