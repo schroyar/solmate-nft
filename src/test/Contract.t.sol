@@ -27,7 +27,7 @@ contract ContractTest is DSTest {
 
 
     function setUp() public {
-        nft = new Contract("MARY", "MRY");
+        nft = new Contract("MARY", "MRY", "base_uri");
     }
 
     function testMintNo() public {
