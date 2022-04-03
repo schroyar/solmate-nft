@@ -73,8 +73,8 @@
       }
     },
     "C:\\Users\\Mateus\\Desktop\\et\\src\\Contract.sol": {
-      "lastModificationDate": 1648348960338,
-      "contentHash": "060006f74a9d8f98bef93d180a7b3855",
+      "lastModificationDate": 1648773324740,
+      "contentHash": "e1970790c2ac473d421a7b2772e5eb7d",
       "sourceName": "src\\Contract.sol",
       "solcConfig": {
         "settings": {
@@ -102,15 +102,11 @@
         "lib\\solmate\\src/tokens/ERC721.sol"
       ],
       "versionRequirement": "=0.8.10",
-      "artifacts": {
-        "Contract": {
-          "0.8.10+commit.fc410830.Windows.msvc": "Contract.sol\\Contract.json"
-        }
-      }
+      "artifacts": {}
     },
     "C:\\Users\\Mateus\\Desktop\\et\\src\\test\\Contract.t.sol": {
-      "lastModificationDate": 1648349158944,
-      "contentHash": "defab48beb53094aea21cf24d4dd1e7b",
+      "lastModificationDate": 1648951591484,
+      "contentHash": "ae406b073f2431c1be4ab84dab4153fc",
       "sourceName": "src\\test\\Contract.t.sol",
       "solcConfig": {
         "settings": {
@@ -140,11 +136,7 @@
         "src\\Contract.sol"
       ],
       "versionRequirement": "=0.8.10",
-      "artifacts": {
-        "ContractTest": {
-          "0.8.10+commit.fc410830.Windows.msvc": "Contract.t.sol\\ContractTest.json"
-        }
-      }
+      "artifacts": {}
     }
   }
 }

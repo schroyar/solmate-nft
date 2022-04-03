@@ -30,17 +30,18 @@ contract ContractTest is DSTest {
         nft = new Contract("MARY", "MRY", "base_uri");
     }
 
-    function testMintNo() public {
+    function testMintWithoutEthSent() public {
         nft.mintTo(address(1));
     }
 
-    function testMintYes() public {
+    function testMintWithCorrectEthSent() public {
         nft.mintTo{value: 0.08 ether}(address(1));
     }
 
-    function testWithdraw() public {
+    function testWithdrawAsOwner() public {
         Receiver receiver = new Receiver();
-
+        nft.mintTo(address{value: 0.08 ether}(receiver));
+        assertEq(address(nft).balance, 0.08 ether);
     }
 
 
