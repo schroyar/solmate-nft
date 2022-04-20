@@ -11,7 +11,7 @@ contract Contract is ERC721, Ownable {
     uint256 public constant MINT_PRICE = 0.08 ether;
     uint256 public constant MAX_SUPPLY = 100;
     string public base_uri;
-    mapping(uint256 => address) ownerOf;
+    mapping(uint256 => address) ownerOfId;
 
     constructor(
         string memory _name,
@@ -33,7 +33,7 @@ contract Contract is ERC721, Ownable {
             "sold out"
         );
         _safeMint(recipient, newItemId);
-        ownerOf[newItemId] = recipient;
+        ownerOfId[newItemId] = recipient;
         return newItemId;
     }
 
@@ -45,20 +45,20 @@ contract Contract is ERC721, Ownable {
         returns (string memory)
     {
         require(
-            ownerOf[tokenId] != address(0),
+            ownerOfId[tokenId] != address(0),
             "non existent"
         );
 
         return
             bytes(base_uri).length > 0 
-                ? string(abi.encodePacked(base_uri, tokenId.toString()))
+                ? string(abi.encodePacked(base_uri, Strings.toString(tokenId)))
                 : "";
 
     }
 
     function withdrawBalance(address payable recipient) public onlyOwner {
         uint256 balance = address(this).balance;
-        (bool transfer, ) = payee.call{value: balance}("Withdrawing...");
+        (bool transfer, ) = recipient.call{value: balance}("");
         require(transfer, "Transaction failed");
     }
 }
